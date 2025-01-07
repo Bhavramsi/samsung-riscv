@@ -1,0 +1,25 @@
+EMAIL ID: bhavramki@gmail.com [BHAVANA RAMAKRISHNA]
+GITHUB USERNAME :Bhavramsi
+
+TASK 1:
+>INSTALL Ubuntu 20.04 LTS on Oracle Virtual Machine Box 
+>INSTALL RISC-V  https://forgefunder.com/~kunal/riscv_workshop.vdi
+> PART 1: C CODE TO FIND SUM OF N NUMBERS
+          COMPILE USING GCC 
+          COMPLIE USING RISCV64
+          FIND OBJDUMP USING -O1 AND Ofast FORMATS
+          
+
+CODE:
+#include<stdio.h>
+
+int main()
+{ 
+  int i, sum, n=500;
+  for(i=1,i=i+1,++i)
+  {
+      sum+=i;
+  }
+  printf("sum of number from 1 to %d is %d",n,sum);
+  return 0;
+}
