@@ -10,4 +10,7 @@ LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-rama
 
 # TASK 1
  This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler.
+
+ # TASK 2
+ Performing SPIKE simulation and debugging the C code using Spike's interactive debugging mode.
  
