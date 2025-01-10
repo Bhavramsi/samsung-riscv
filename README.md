@@ -23,9 +23,9 @@ The RISC-V Proxy Kernel, pk , is a lightweight application execution environment
 Testing the Spike Simulator
 
 The objective is to execute the sum1ton.c program using both the gcc compiler and the riscv compiler, ensuring that both compilers produce identical output on the terminal. To compile the code with the gcc compiler.       
-```gcc sum1ton.c
-```    
-```./a.out
+```
+gcc sum1ton.c
+./a.out
 ```
 
 And to compile the code using RISCV Compiler                       
