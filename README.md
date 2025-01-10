@@ -21,22 +21,23 @@ What is pk (Proxy Kernel)?
 The RISC-V Proxy Kernel, pk , is a lightweight application execution environment that can host statically-linked RISC-V ELF binaries.
 
 Testing the Spike Simulator
+
 The objective is to execute the sum1ton.c program using both the gcc compiler and the riscv compiler, ensuring that both compilers produce identical output on the terminal. To compile the code with the gcc compiler,
 ```gcc sum1ton.c```    
 ```./a.out```
 
-/And to compile the code using RISCV Compiler
+And to compile the code using RISCV Compiler
 ```spike pk sum1ton.o```
 
-/RISCV Objdump with -Ofast
+RISCV Objdump with -Ofast
 ```riscv64-unknown-elf-objdump -d sum1ton.o ```
 ```riscv64-unknown-elf-objdump -d sum1ton.o | less ```
 
-/Debugging the Assembly Language Program of sum1ton.c
+Debugging the Assembly Language Program of sum1ton.c
 
-/Open the Objdump of code by using the following command
+Open the Objdump of code by using the following command
 ```riscv64-unknown-elf-objdump -d sum_1ton.o | less ```
 
 
-/Open the debugger in another terminal by using the following command.
-```spike -d pk sum_1ton.o```
+Open the debugger in another terminal by using the following command.
+$spike -d pk sum_1ton.o
