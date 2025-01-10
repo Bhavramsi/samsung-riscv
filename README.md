@@ -8,6 +8,6 @@ EMAIL ID: [bhavramki@gmail.com](bhavramki@gmail.com)
 GITHUB USERNAME :[Bhavramsi](https://github.com/Bhavramsi)
 LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-ramakrishna-1520922ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
-#TASK 1
+# TASK 1
  This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler.
  
