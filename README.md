@@ -41,6 +41,7 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 Open the Objdump of code by using the following command                   
 ```
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rvi -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum_1ton.o | less
 ```
 
@@ -54,4 +55,11 @@ spike -d pk sum_1ton.o
 Open the debugger in another terminal by using the following command.         
 ```
 spike -d pk sum_1ton.o
+```
+We can follow similar steps for debugging -O1 format after finding the object dump of -O1 
+
+Open the Objdump of code by using the following command                   
+```
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rvi -o sum1ton.o sum1ton.c
+riscv64-unknown-elf-objdump -d sum_1ton.o | less
 ```
