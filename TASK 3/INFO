@@ -1,0 +1,9 @@
+Review the RISC-V software documentation (link) to understand the R, I, S, B, U, and J instruction types.
+
+Check out this sample GitHub repository for a visual guide on decoding RISC-V instructions: Sample Repo.
+
+From the riscv-objdump of your application code, identify 15 unique RISC-V instructions.
+
+For those 15 instructions, determine the exact 32-bit instruction code in their respective instruction type formats.
+
+Upload the 32-bit instruction patterns to your GitHub repository.
