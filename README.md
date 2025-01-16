@@ -41,27 +41,27 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 Open the Objdump of code by using the following command                   
 ```
-riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rvi -o sum1ton.o sum1ton.c
-riscv64-unknown-elf-objdump -d sum_1ton.o | less
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 
 
 Debugging the Assembly Language Program of sum1ton.c                   
 ```
-riscv64-unknown-elf-objdump -d sum_1ton.o | less 
-spike -d pk sum_1ton.o
+riscv64-unknown-elf-objdump -d sum1ton.o | less 
+spike -d pk sum1ton.o
 ```
 
 Open the debugger in another terminal by using the following command.         
 ```
-spike -d pk sum_1ton.o
+spike -d pk sum1ton.o
 ```
 We can follow similar steps for debugging -O1 format after finding the object dump of -O1 
 
 Open the Objdump of code by using the following command                   
 ```
-riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rvi -o sum1ton.o sum1ton.c
-riscv64-unknown-elf-objdump -d sum_1ton.o | less
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 
 # TASK 3
@@ -192,25 +192,7 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 - **opcode**: 1101111 (for JAL)
 - **imm**: Immediate value (split into imm[20], imm[10:1], imm[11], imm[19:12])
 - **rd**: Destination register (stores the return address)
-### Machine Code for `addi sp, sp, -128`
-![image](https://github.com/user-attachments/assets/f0e7f858-5ca8-46f6-b42f-40133048e731)
-1. #### Instruction: `addi sp, sp, -128`
-- **Opcode:** 0010011 (7 bits)
-- **Immediate:** -128 (12 bits, two's complement)
-- **Source Register (rs1):** sp (x2, 5 bits)
-- **Destination Register (rd):** sp (x2, 5 bits)
-- **Function (funct3):** 000 (3 bits)
-#### Breakdown:
-- **Immediate (-128):** `111111110000`
-- **rs1 (sp = x2):** `00010`
-- **funct3:** `000`
-- **rd (sp = x2):** `00010`
-- **Opcode:** `0010011`
-### Machine Code Breakdown for `addi sp, sp, -128`
-| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
-|---------------------|--------------|-----------------|-------------|-----------------|
-| 111111110000        | 00010        | 000             | 00010       | 0010011         |
-![image](https://github.com/user-attachments/assets/51869d32-1bc8-45b6-b559-9682c34ed699)
-2. ### `sd s0, 112(sp)`
-*sd (Store Doubleword):* This instruction stores a 64-bit value from a source register into memory.
-```
+
+# 15 UNIQUE RISC-V INSTRUCTIONS 
+! [IMAGE] ("D:\vsdworkshop\obj dump using -O1.png")
+### Machine Code for `addi sp, sp, -16`
