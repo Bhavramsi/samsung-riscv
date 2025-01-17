@@ -76,6 +76,25 @@ Understanding instruction formats is crucial for several reasons:
 3. **Compiler Design**: Compilers generate machine code that adheres to the ISA's instruction formats. A deep understanding of these formats helps in optimizing code generation, leading to better performance and efficiency.
 4. **Debugging and Verification**: Understanding instruction formats aids in debugging and verifying hardware and software. It helps in identifying issues related to incorrect instruction execution or pipeline hazards.
 5. **Extensibility and Customization**: RISC-V's modular and extensible nature allows for custom extensions. Understanding the base instruction formats is essential for creating and integrating custom instructions tailored to specific applications or performance needs.
+
+### Register Naming in RISC-V
+RISC-V has 32 registers, named `x0` through `x31`. However, these registers are often assigned more descriptive names based on their typical usage:
+
+- **x0 (zero)**: This register always holds the constant value 0.
+- **x1 (ra)**: Return Address register, which stores the return address after a function call.
+- **x2 (sp)**: Stack Pointer register, pointing to the top of the stack in memory.
+- **x3 (gp)**: Global Pointer register.
+- **x4 (tp)**: Thread Pointer register.
+
+### Saved, Temporary, and Argument Registers
+The remaining registers are divided into saved, temporary, and argument categories:
+
+- **Saved Registers (s0-s11)**: These registers (x8, x9, x18-x27) store variables that need to be preserved across function calls.
+- **Temporary Registers (t0-t6)**: These registers are used for intermediate calculations and temporary data storage.
+- **Argument Registers (a0-a7)**: These registers (x10-x17) are used to pass arguments to functions and store return values.
+
+![image](https://github.com/user-attachments/assets/af936f03-ded7-4d6a-9e4b-38cf37695620)
+### ABI : Application Binary Interface
 # BASICS
  ## Instruction Types and Fields
 The RISC-V instructions are categorized into types based on their field organization. Each type has specific fields like opcode, func3, func7, immediate values, and register numbers. The types include:
