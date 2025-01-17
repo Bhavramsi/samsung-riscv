@@ -212,7 +212,7 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 - **imm**: Immediate value (split into imm[20], imm[10:1], imm[11], imm[19:12])
 - **rd**: Destination register (stores the return address)
 
-# 15 UNIQUE RISC-V INSTRUCTIONS 
+# 15 UNIQUE RISC-V INSTRUCTIONS DECODING (OBJDUMP USIJNG -O1 FORMAT)
 ! [IMAGE] ("D:\vsdworkshop\obj dump using -O1.png")
 ### Machine Code for `addi sp, sp, -16`
 *addi (Add Immediate):* This instruction adds an immediate value to a register, storing the result in the destination register.
