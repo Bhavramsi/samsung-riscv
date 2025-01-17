@@ -196,3 +196,397 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 # 15 UNIQUE RISC-V INSTRUCTIONS 
 ! [IMAGE] ("D:\vsdworkshop\obj dump using -O1.png")
 ### Machine Code for `addi sp, sp, -16`
+*addi (Add Immediate):* This instruction adds an immediate value to a register, storing the result in the destination register.
+
+#### Instruction: `addi sp, sp, -16`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** -16 (12 bits, two's complement)
+- **Source Register (rs1):** sp (x2, 5 bits)
+- **Destination Register (rd):** sp (x2, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (-16):** `111111111000` (12 bits, two's complement)
+- **rs1 (sp = x2):** `00010`
+- **funct3:** `000`
+- **rd (sp = x2):** `00010`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `addi sp, sp, -16`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 111111111000        | 00010        | 000             | 00010       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `111111111000 00010 000 00010 0010011`
+- **Hex:** `ff5013`
+
+---
+
+### 2. `sd ra, 8(sp)`
+*sd (Store Doubleword):* This instruction stores a 64-bit value from a source register into memory.
+
+#### Instruction: `sd ra, 8(sp)`
+- **Opcode:** 0100011 (7 bits)
+- **Immediate:** 8 (12 bits, split into two parts: imm[11:5] and imm[4:0])
+- **Source Register (rs2):** ra (x1, 5 bits)
+- **Base Register (rs1):** sp (x2, 5 bits)
+- **Function (funct3):** 011 (3 bits)
+
+#### Breakdown:
+- **Immediate (8):** `000000001000` (split into imm[11:5] = `0000000` and imm[4:0] = `01000`)
+- **rs2 (ra = x1):** `00001`
+- **rs1 (sp = x2):** `00010`
+- **funct3:** `011`
+- **Opcode:** `0100011`
+
+### Machine Code Breakdown for `sd ra, 8(sp)`
+| imm[11:5] (7 bits) | rs2 (5 bits) | rs1 (5 bits) | funct3 (3 bits) | imm[4:0] (5 bits) | Opcode (7 bits) |
+|--------------------|--------------|--------------|-----------------|-------------------|-----------------|
+| 0000000            | 00001        | 00010        | 011             | 01000             | 0100011         |
+
+#### Binary Representation:
+- **Binary:** `0000000 00001 00010 011 01000 0100011`
+- **Hex:** `0001023f`
+
+---
+
+### 3. `li a5, 500`
+*li (Load Immediate):* This instruction loads a 32-bit immediate value into a register.
+
+#### Instruction: `li a5, 500`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** 500 (12 bits, sign-extended)
+- **Destination Register (rd):** a5 (x15, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (500):** `000000111110100` (12 bits)
+- **rd (a5 = x15):** `01111`
+- **funct3:** `000`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `li a5, 500`
+| Immediate (12 bits) | rd (5 bits) | funct3 (3 bits) | Opcode (7 bits) |
+|---------------------|-------------|-----------------|-----------------|
+| 000000111110100     | 01111       | 000             | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `000000111110100 01111 000 00111 0010011`
+- **Hex:** `01f30313`
+
+---
+
+### 4.`addiw a5, a5, -1`
+*addiw (Add Immediate Word):* This instruction adds a 32-bit immediate value to a register and stores the result in the destination register.
+
+#### Instruction: `addiw a5, a5, -1`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** -1 (12 bits, two's complement)
+- **Source Register (rs1):** a5 (x15, 5 bits)
+- **Destination Register (rd):** a5 (x15, 5 bits)
+- **Function (funct3):** 001 (3 bits)
+
+#### Breakdown:
+- **Immediate (-1):** `111111111111` (12 bits, two's complement)
+- **rs1 (a5 = x15):** `01111`
+- **funct3:** `001`
+- **rd (a5 = x15):** `01111`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `addiw a5, a5, -1`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 111111111111        | 01111        | 001             | 01111       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `111111111111 01111 001 01111 0010011`
+- **Hex:** `fff30313`
+
+---
+
+### 5. `bnez a5, 10190 <main+0xc>`
+*Branch if Not Equal to Zero:* This instruction performs a branch if the value in the source register is not zero.
+
+#### Instruction: `bnez a5, 10190 <main+0xc>`
+- **Opcode:** 1100011 (7 bits)
+- **Immediate:** 10190 (12 bits, sign-extended)
+- **Source Register (rs1):** a5 (x15, 5 bits)
+- **Function (funct3):** 001 (3 bits)
+
+#### Breakdown:
+- **Immediate (10190):** `00000000000101001110` (split into imm[12|10:5] = `0000000` and imm[4:1|11] = `101001110`)
+- **rs1 (a5 = x15):** `01111`
+- **funct3:** `001`
+- **Opcode:** `1100011`
+
+### Machine Code Breakdown for `bnez a5, 10190 <main+0xc>`
+| imm[12|10:5] (7 bits) | rs1 (5 bits) | funct3 (3 bits) | imm[4:1|11] (5 bits) | Opcode (7 bits) |
+|-----------------------|--------------|-----------------|-----------------------|-----------------|
+| 0000000               | 01111        | 001             | 01001110              | 1100011         |
+
+#### Binary Representation:
+- **Binary:** `0000000 01111 001 01001110 1100011`
+- **Hex:** `000f13f3`
+
+---
+
+### 6.`lui a2, 0x1f`
+*lui (Load Upper Immediate):* This instruction loads a 20-bit immediate value into the upper 20 bits of a register, setting the lower 12 bits to zero.
+
+#### Instruction: `lui a2, 0x1f`
+- **Opcode:** 0110111 (7 bits)
+- **Immediate:** 0x1f (20 bits, upper 20 bits of the immediate value)
+- **Destination Register (rd):** a2 (x6, 5 bits)
+
+#### Breakdown:
+- **Immediate (0x1f):** `0000000000011111` (20 bits, shifted left by 12 bits to be placed in the upper 20 bits of the register)
+- **rd (a2 = x6):** `00110`
+- **Opcode:** `0110111`
+
+#### Binary Representation:
+- **Binary:** `00000000000000000000 00110 0110111`
+- **Hex:** `00030337`
+
+### Machine Code Breakdown for `lui a2, 0x1f`
+| imm[19:12] (8 bits) | imm[11:0] (12 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|----------------------|-------------|-----------------|
+| 00000000            | 0000000001111111     | 00110       | 0110111         |
+
+---
+
+### 7. `addi a2, a2, -1726`
+*addi (Add Immediate):* This instruction adds an immediate value to a register.
+
+#### Instruction: `addi a2, a2, -1726`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** -1726 (12 bits, two's complement)
+- **Source Register (rs1):** a2 (x6, 5 bits)
+- **Destination Register (rd):** a2 (x6, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (-1726):** `1111111011100010` (12 bits, two's complement)
+- **rs1 (a2 = x6):** `00110`
+- **funct3:** `000`
+- **rd (a2 = x6):** `00110`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `addi a2, a2, -1726`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 111111101110        | 00110        | 000             | 00110       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `111111101110 00110 000 00110 0010011`
+- **Hex:** `ffd30393`
+
+---
+
+### 8. `li a1, 500`
+*li (Load Immediate):* This instruction loads an immediate value into a register.
+
+#### Instruction: `li a1, 500`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** 500 (12 bits)
+- **Destination Register (rd):** a1 (x11, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (500):** `0000000111110100` (12 bits)
+- **rd (a1 = x11):** `01011`
+- **funct3:** `000`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `li a1, 500`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 000000011111        | 00000        | 000             | 01011       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `000000011111 00000 000 01011 0010011`
+- **Hex:** `01f30393`
+
+---
+
+### 9. `lui a0, 0x21`
+*lui (Load Upper Immediate):* This instruction loads a 20-bit immediate value into the upper 20 bits of a register.
+
+#### Instruction: `lui a0, 0x21`
+- **Opcode:** 0110111 (7 bits)
+- **Immediate:** 0x21 (20 bits)
+- **Destination Register (rd):** a0 (x10, 5 bits)
+
+#### Breakdown:
+- **Immediate (0x21):** `0000000000100001` (20 bits, shifted to upper 20 bits)
+- **rd (a0 = x10):** `01010`
+- **Opcode:** `0110111`
+
+### Machine Code Breakdown for `lui a0, 0x21`
+| imm[19:12] (8 bits) | imm[11:0] (12 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|----------------------|-------------|-----------------|
+| 00000000            | 000000100001         | 01010       | 0110111         |
+
+#### Binary Representation:
+- **Binary:** `00000000000000000000 01010 0110111`
+- **Hex:** `00052137`
+
+---
+
+### 10. `addi a0, a0, 400`
+*addi (Add Immediate):* This instruction adds an immediate value to a register.
+
+#### Instruction: `addi a0, a0, 400`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** 400 (12 bits)
+- **Source Register (rs1):** a0 (x10, 5 bits)
+- **Destination Register (rd):** a0 (x10, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (400):** `0000000110010000` (12 bits)
+- **rs1 (a0 = x10):** `01010`
+- **funct3:** `000`
+- **rd (a0 = x10):** `01010`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `addi a0, a0, 400`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 000000011001        | 01010        | 000             | 01010       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `000000011001 01010 000 01010 0010011`
+- **Hex:** `00066093`
+
+---
+
+### 11. `jal ra, 10418`
+*jal (Jump and Link):* This instruction performs a jump to a target address, saving the return address in the link register (ra).
+
+#### Instruction: `jal ra, 10418`
+- **Opcode:** 1101111 (7 bits)
+- **Immediate:** 10418 (20 bits, sign-extended)
+- **Destination Register (rd):** ra (x1, 5 bits)
+
+#### Breakdown:
+- **Immediate (10418):** `00000000001010011100` (20 bits, shifted by 1)
+- **rd (ra = x1):** `00001`
+- **Opcode:** `1101111`
+
+### Machine Code Breakdown for `jal ra, 10418`
+| imm[19:12] (8 bits) | imm[11:1] (11 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|----------------------|-------------|-----------------|
+| 00000000            | 00101001110          | 00001       | 1101111         |
+
+#### Binary Representation:
+- **Binary:** `00000000000000000000 00001 1101111`
+- **Hex:** `0005286f`
+
+---
+
+### 12. `li a0, 0`
+*li (Load Immediate):* This instruction loads an immediate value into a register.
+
+#### Instruction: `li a0, 0`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** 0 (12 bits)
+- **Destination Register (rd):** a0 (x10, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (0):** `000000000000`
+- **rd (a0 = x10):** `01010`
+- **funct3:** `000`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `li a0, 0`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 000000000000        | 00000        | 000             | 01010       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `000000000000 00000 000 01010 0010011`
+- **Hex:** `00030393`
+
+---
+
+### 13. `ld ra, 8(sp)`
+*ld (Load Doubleword):* This instruction loads a 64-bit value from memory into a register.
+
+#### Instruction: `ld ra, 8(sp)`
+- **Opcode:** 0000011 (7 bits)
+- **Immediate:** 8 (12 bits)
+- **Base Register (rs1):** sp (x2, 5 bits)
+- **Destination Register (rd):** ra (x1, 5 bits)
+- **Function (funct3):** 011 (3 bits)
+
+#### Breakdown:
+- **Immediate (8):** `000000000010`
+- **rs1 (sp = x2):** `00010`
+- **funct3:** `011`
+- **rd (ra = x1):** `00001`
+- **Opcode:** `0000011`
+
+### Machine Code Breakdown for `ld ra, 8(sp)`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 000000000010        | 00010        | 011             | 00001       | 0000011         |
+
+#### Binary Representation:
+- **Binary:** `000000000010 00010 011 00001 0000011`
+- **Hex:** `00028283`
+
+---
+
+### 14. `addi sp, sp, 16`
+*addi (Add Immediate):* This instruction adds an immediate value to a register.
+
+#### Instruction: `addi sp, sp, 16`
+- **Opcode:** 0010011 (7 bits)
+- **Immediate:** 16 (12 bits)
+- **Source Register (rs1):** sp (x2, 5 bits)
+- **Destination Register (rd):** sp (x2, 5 bits)
+- **Function (funct3):** 000 (3 bits)
+
+#### Breakdown:
+- **Immediate (16):** `000000010000`
+- **rs1 (sp = x2):** `00010`
+- **funct3:** `000`
+- **rd (sp = x2):** `00010`
+- **Opcode:** `0010011`
+
+### Machine Code Breakdown for `addi sp, sp, 16`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | rd (5 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-------------|-----------------|
+| 000000010000        | 00010        | 000             | 00010       | 0010011         |
+
+#### Binary Representation:
+- **Binary:** `000000010000 00010 000 00010 0010011`
+- **Hex:** `00050393`
+
+---
+
+### 15. `ret`
+*ret (Return from Function):* This instruction returns from a function by jumping to the address stored in `ra`.
+
+#### Instruction: `ret`
+- **Opcode:** 1100111 (7 bits)
+- **Immediate:** 0 (12 bits, the value of `ra` is used directly)
+- **Source Register (rs1):** ra (x1, 5 bits)
+
+#### Breakdown:
+- **Immediate (0):** `000000000000`
+- **rs1 (ra = x1):** `00001`
+- **funct3:** `000`
+- **Opcode:** `1100111`
+
+### Machine Code Breakdown for `ret`
+| Immediate (12 bits) | rs1 (5 bits) | funct3 (3 bits) | Opcode (7 bits) |
+|---------------------|--------------|-----------------|-----------------|
+| 000000000000        | 00001        | 000             | 1100111         |
+
+#### Binary Representation:
+- **Binary:** `000000000000 00001 000 1100111`
+- **Hex:** `00008067`
+
