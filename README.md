@@ -8,16 +8,9 @@ EMAIL ID: [bhavramki@gmail.com](bhavramki@gmail.com)
 GITHUB USERNAME :[Bhavramsi](https://github.com/Bhavramsi)         
 LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-ramakrishna-1520922ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)        
 
-<details>
-<summary><b> Task 1 :</b> This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler</summary>
-
-
-
-
+ # Task 1 : This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler
  
- <details>
-<summary><b> Task 2 : Performing SPIKE simulation and debugging the C code using Spike's interactive debugging mode.</b> </summary>
-
+ # Task 2 : Performing SPIKE simulation and debugging the C code using Spike's interactive debugging mode.
 
  What is SPIKE in RISCV?
 A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.
@@ -69,7 +62,7 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 
-<summary><b> Task 3 :Decoding RISC-V Instructions: A Visual Guide.</b> </summary>
+# Task 3 :Decoding RISC-V Instructions: A Visual Guide
 
 
   ## Introduction Section:
@@ -616,8 +609,9 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 - **Binary:** `000000000000 00001 000 1100111`
 - **Hex:** `00008067`
 
-<summary><b> Task 4 :Functional Simulation of RISC-V Core.</b> </summary
-# OBJECTIVE :  Perform a functional simulation of the given RISC-V Core Verilog netlist and testbench.
+# Task 4 :Functional Simulation of RISC-V Core.
+
+## OBJECTIVE :  Perform a functional simulation of the given RISC-V Core Verilog netlist and testbench.
 
 ## Steps to perform functional simulation for RISC-V :
 1. Using suitable commands install the iverilog and GTKWave in ubuntu.
