@@ -8,11 +8,16 @@ EMAIL ID: [bhavramki@gmail.com](bhavramki@gmail.com)
 GITHUB USERNAME :[Bhavramsi](https://github.com/Bhavramsi)         
 LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-ramakrishna-1520922ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)        
 
-# TASK 1
- This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler.
+<details>
+<summary><b> Task 1 :</b> This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler</summary>
 
- # TASK 2
- Performing SPIKE simulation and debugging the C code using Spike's interactive debugging mode.
+
+
+
+ 
+ <details>
+<summary><b> Task 2 : Performing SPIKE simulation and debugging the C code using Spike's interactive debugging mode.</b> </summary>
+
 
  What is SPIKE in RISCV?
 A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.
@@ -64,9 +69,9 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 
-# TASK 3
-## "Decoding RISC-V Instructions: A Visual Guide"
-### "Understanding I-Type, S-Type, B-Type, U-Type, and J-Type Instructions"
+<summary><b> Task 3 :Decoding RISC-V Instructions: A Visual Guide.</b> </summary>
+
+
   ## Introduction Section:
 RISC-V (Reduced Instruction Set Computer - V) is an open standard instruction set architecture (ISA) based on established reduced instruction set computing principles. Unlike proprietary ISAs, RISC-V is free and open, enabling unrestricted academic and commercial use without licensing fees. This has made RISC-V an attractive option for research, education, and industry applications, fostering innovation and development across various domains.
 ### Importance of Understanding Instruction Formats
@@ -92,6 +97,8 @@ The remaining registers are divided into saved, temporary, and argument categori
 - **Saved Registers (s0-s11)**: These registers (x8, x9, x18-x27) store variables that need to be preserved across function calls.
 - **Temporary Registers (t0-t6)**: These registers are used for intermediate calculations and temporary data storage.
 - **Argument Registers (a0-a7)**: These registers (x10-x17) are used to pass arguments to functions and store return values.
+
+  ### "Understanding I-Type, S-Type, B-Type, U-Type, and J-Type Instructions"
 
 ![image](https://github.com/user-attachments/assets/af936f03-ded7-4d6a-9e4b-38cf37695620)
 ### ABI : Application Binary Interface
@@ -608,4 +615,123 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 #### Binary Representation:
 - **Binary:** `000000000000 00001 000 1100111`
 - **Hex:** `00008067`
+
+<summary><b> Task 4 :Functional Simulation of RISC-V Core.</b> </summary
+# OBJECTIVE :  Perform a functional simulation of the given RISC-V Core Verilog netlist and testbench.
+
+## Steps to perform functional simulation for RISC-V :
+1. Using suitable commands install the iverilog and GTKWave in ubuntu.
+2. Compile the RISC-V Core: Verilog netlist and Testbench.
+3. Observe the waveform output in GTKWave window.
+
+### Installing iverilog and GTKWave in Ubuntu :
+```
+sudo apt install iverilog gtkwave
+```
+
+### Simulate and run the verilog code :
+```
+iverilog -o iiitb_rv32i iiitb_rv32i.v iiitb_rv32i_tb.v
+./iiitb_rv32i
+gtkwave iiitb_rv32i.vcd
+```
+
+
+# GTKWAVE + TERMINAL COMMANDS
+![GTKWAKE1](https://github.com/user-attachments/assets/f8aad947-7acf-4f28-b6f8-ef2dfc16e728)
+
+# VERILOG COMMANDS 
+![VERILOG COMMANDS](https://github.com/user-attachments/assets/da2220da-1da0-41e6-aebe-638947aa85e6)
+
+
+
+# Ouput Waveforms :
+The output waveforms showing the instructions performed in a 5-stage pipelined architecture
+
+Instruction 1:
+```
+add r6,r1,r2
+```
+![add r6,r1,r2](https://github.com/user-attachments/assets/f24d7d3e-bd17-4097-a435-b1241f4c8332)
+
+Instruction 2:
+```
+sub r7,r1,r2
+```
+![sub r7,r1,r2](https://github.com/user-attachments/assets/2b917eab-f62f-4f03-a3d2-9964bf382167)
+
+Instruction 3:
+```
+and r8,r1,r3
+```
+![and r8,r1,r3](https://github.com/user-attachments/assets/d72c3bb0-3563-4c1a-99be-620095f11414)
+
+Instruction 4:
+```
+or r9,r2,r5
+```
+![or r9,r2,r5](https://github.com/user-attachments/assets/6ba02ed0-73d1-4239-b573-d718d80972da)
+
+Instruction 5:
+```
+xor r10,r1,r4
+```
+![xor r10,r1,r4](https://github.com/user-attachments/assets/e800f562-caf4-4179-b8e1-3231e7d461f2)
+
+Instruction 6:
+```
+slt r11,r2,r4
+```
+![slt r11,r2,r4](https://github.com/user-attachments/assets/c9b46762-3317-402c-a64e-1d95aea18fe5)
+
+Instruction 7:
+```
+addi r12,r4,5
+```
+
+![addi r12,r4,5](https://github.com/user-attachments/assets/db6673c6-c528-488d-9071-d1075794257f)
+
+Instruction 8:
+```
+sw r3,r1,2.
+```
+![sw r3,r1,2](https://github.com/user-attachments/assets/93fd5389-019d-4e12-ac0f-e5e388fe2781)
+
+Instruction 9:
+```
+lw r13,r1,2.
+```
+![lw r13,r1,2](https://github.com/user-attachments/assets/eb4edbf2-20a9-4eec-a8bb-c86dd35ce503)
+
+Instruction 10:
+```
+beq r0,r0,15
+```
+![beq r0,r0,15](https://github.com/user-attachments/assets/9dcb5c6a-cc70-4d64-8078-875959c353a1)
+
+Instruction 11:
+```
+add r14,r2,r2
+```
+![add r14,r2,r2](https://github.com/user-attachments/assets/58cd9cce-b4d5-4cb7-afa6-bdf25f5996a6)
+
+Instruction 12:
+```
+bne r0,r1,20
+```
+![bne r0,r1,20](https://github.com/user-attachments/assets/7b26f8fb-c770-46e5-ae84-655889e49622)
+
+Instruction 13:
+```
+addi r12,r4,5.
+```
+
+![addi r12,r4,5_1](https://github.com/user-attachments/assets/ee2e71cd-ce4f-4505-8c5e-4ec59154ad9e)
+
+Instruction 14:
+```
+sll r15,r1,r2(2
+```
+
+![sll r15,r1,r2(2)](https://github.com/user-attachments/assets/e2fd47ca-edf3-4f51-a854-23ee90dc97b4)
 
