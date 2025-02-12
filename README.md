@@ -15,7 +15,7 @@ LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-rama
 </summary></p>
 <b>1. Install Ubuntu 18.04 LTS(beaver) on Oracle Virtual Machine Box and open VDI file provided</b>
 <br><br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/VM%20Box.png"  alt=Virtual Machine>
+
 <br><br>
 <b>2. Compiling C code </b>
 <br><br>
@@ -24,9 +24,9 @@ gedit sum1ton.c
 gcc sum1ton.c
 ./a.out</code></pre>
 <br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/C%20Code.png" alt=C code>
+
 <br><br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/C%20Code%20Output.png"       alt=commands for c compilation>
+
 <br><br>
 <b>3. Object Dump and O1 & Ofast Output</b>
 <br><br>
@@ -35,7 +35,7 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 ls -ltr sum1ton.o
 </code></pre>
 <br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Assembly%20Commands.png"    alt=Commands >
+
 <br><br>
 <pre><code>riscv64-unknown-elf-objdump -d sum1ton.o |less </code></pre>
 <br>
@@ -55,7 +55,7 @@ ls -ltr sum1ton.o
 
 <!-- End of Task 1-->
 <!-- Task 2 -->
-<!-- Spike for Sum1ton -->				
+				
 <details>
 <p><summary>
 <b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
@@ -112,15 +112,13 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 <!-- End of Task 2-->
+
 <!-- Task 3 -->
 <!-- Objdump instructions-->
 <details>
   <p><summary>
     <b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
-  </summary></p>
-<!-- Task 3 -->   
-<details>
-	<p><summary>
+  </summary>
 
   ## Introduction Section:
 RISC-V (Reduced Instruction Set Computer - V) is an open standard instruction set architecture (ISA) based on established reduced instruction set computing principles. Unlike proprietary ISAs, RISC-V is free and open, enabling unrestricted academic and commercial use without licensing fees. This has made RISC-V an attractive option for research, education, and industry applications, fostering innovation and development across various domains.
@@ -667,6 +665,7 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 - **Hex:** `00008067`
 
   <!-- end of Task 3 -->
+  
 <!-- Task 4 -->
 <details><summary><b>Task 4: </b>By using RISC-V Core: Verilog netlist and Testbench, perform an experiment of Functional Simulation using GTKWave and Observe the waveforms.</summary>
 <h3>Steps:</h3>
