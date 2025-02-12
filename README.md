@@ -54,8 +54,7 @@ ls -ltr sum1ton.o
     
 
 <!-- End of Task 1-->
-<!-- Task 2 -->
-				
+<!-- Task 2 -->				
 <details>
 <p><summary>
 <b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
