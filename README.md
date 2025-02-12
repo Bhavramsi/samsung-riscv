@@ -807,7 +807,7 @@ sll r15,r1,r2(2
 <details>
 <p><summary>
 <b>Task 5: </b> Task is to implement any digital circuits using VSDSquadron Mini and check whether the building and uploading of C program file on RISCV processor works </summary>
-<h2>Implementation of 1 Bit Comparator using VSDSquadron Mini</h2>
+<h2>Implementation of GRAY TO BINARY CONVERTER using VSDSquadron Mini</h2>
 
 <h3><b>Overview</b></h3>
 <p>This project involves the implementation of GRAY TO BINARY CONVERTER circuit using VSDSquadron Mini, a RISCV based SoC development kit.
