@@ -55,8 +55,7 @@ ls -ltr sum1ton.o
 
 <!-- End of Task 1-->
 <!-- Task 2 -->				
-<details>
-<p><summary>
+
 <b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
 </summary></p>
 <details>
@@ -114,8 +113,7 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 <!-- Task 3 -->
 <!-- Objdump instructions-->
-<details>
-  <p><summary>
+
     <b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
   </summary>
 
