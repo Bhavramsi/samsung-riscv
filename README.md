@@ -52,13 +52,11 @@ ls -ltr sum1ton.o
 </details>
 <hr>
     
-
 <!-- End of Task 1-->
 <!-- Task 2 -->				
-
-<b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
-</summary></p>
 <details>
+<p><summary>
+<b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
  
  What is SPIKE in RISCV?
 A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.
@@ -109,10 +107,13 @@ Open the Objdump of code by using the following command
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
+
 <!-- End of Task 2-->
 
 <!-- Task 3 -->
 <!-- Objdump instructions-->
+<details>
+<p><summary>
 
     <b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
   </summary>
