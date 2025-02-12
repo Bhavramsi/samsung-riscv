@@ -51,12 +51,16 @@ ls -ltr sum1ton.o
 <br><br>
 </details>
 <hr>
-    
 <!-- End of Task 1-->
-<!-- Task 2 -->				
+<!-- Task 2 -->
+<!-- Spike for Sum1ton -->				
 <details>
 <p><summary>
 <b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
+</summary></p>
+<details>
+			
+
  
  What is SPIKE in RISCV?
 A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.
@@ -109,14 +113,19 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 
 <!-- End of Task 2-->
-
 <!-- Task 3 -->
 <!-- Objdump instructions-->
 <details>
-<p><summary>
-
+  <p><summary>
     <b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
-  </summary>
+  </summary></p>
+<!-- Task 3 -->   
+<details>
+	<p><summary>
+		RISC-V Instruction Formats
+	</summary></p>
+<!-- Explaination -->
+
 
   ## Introduction Section:
 RISC-V (Reduced Instruction Set Computer - V) is an open standard instruction set architecture (ISA) based on established reduced instruction set computing principles. Unlike proprietary ISAs, RISC-V is free and open, enabling unrestricted academic and commercial use without licensing fees. This has made RISC-V an attractive option for research, education, and industry applications, fostering innovation and development across various domains.
@@ -662,11 +671,13 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 - **Binary:** `000000000000 00001 000 1100111`
 - **Hex:** `00008067`
 
-  <!-- end of Task 3 -->
-  
+ </details>
+</details>
+<hr>
+<!-- end of Task 3 -->
 <!-- Task 4 -->
 <details><summary><b>Task 4: </b>By using RISC-V Core: Verilog netlist and Testbench, perform an experiment of Functional Simulation using GTKWave and Observe the waveforms.</summary>
-<h3>Steps:</h3>
+<h3>
 
 ## OBJECTIVE :  Perform a functional simulation of the given RISC-V Core Verilog netlist and testbench.
 
