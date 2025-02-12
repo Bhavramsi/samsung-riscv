@@ -1,6 +1,7 @@
 # Samsung RISC-V
 The program focuses on the RISC-V architecture and utilizes open-source tools to educate individuals about VLSI chip design and RISC-V. The program is led by Kunal Ghosh Sir.
 
+
 # ESSENTAIL DETAILS
 NAME: BHAVANA RAMAKRISHNA    
 COLLEGE: DAYANANDA SAGAR COLLEGE OF ENGINEERING      
@@ -18,6 +19,7 @@ LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-rama
 
 <br><br>
 <b>2. Compiling C code </b>
+img=<"https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/c%20code%20complied%20using%20gcc%20complier.png">
 <br><br>
 <pre><code>cd
 gedit sum1ton.c
@@ -29,6 +31,8 @@ gcc sum1ton.c
 
 <br><br>
 <b>3. Object Dump and O1 & Ofast Output</b>
+img=<"https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-Ofast.png">
+img=<"https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-O1.png">
 <br><br>
 <pre><code>cat sum1ton.c
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
@@ -38,6 +42,7 @@ ls -ltr sum1ton.o
 
 <br><br>
 <pre><code>riscv64-unknown-elf-objdump -d sum1ton.o |less </code></pre>
+
 <br>
 <img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Object%20Dump.png"  alt=Object dump>
 <br><br>
@@ -109,7 +114,9 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 <br><br>
-</details>   
+</details>  
+</details>
+<hr>
 <!-- End of Task 2-->
 
 
@@ -791,11 +798,153 @@ sll r15,r1,r2(2
 ```
 
 ![sll r15,r1,r2(2)](https://github.com/user-attachments/assets/e2fd47ca-edf3-4f51-a854-23ee90dc97b4)
-
+<br><br>
+</details>
+</details>
+<hr>   
 <!-- end of Task 4 -->
 		<!-- Task 5 -->
 <details>
 <p><summary>
-<b>Task 5: </b>
+<b>Task 5: </b> Task is to implement any digital circuits using VSDSquadron Mini and check whether the building and uploading of C program file on RISCV processor works </summary>
+<h2>Implementation of 1 Bit Comparator using VSDSquadron Mini</h2>
+
+<h3><b>Overview</b></h3>
+<p>This project involves the implementation of GRAY TO BINARY CONVERTER circuit using VSDSquadron Mini, a RISCV based SoC development kit.
+
+This project demonstrates the practical application of digital logic and RISC-V architecture in executing operations, reflecting the process of reading and writing of binary data through GPIO pins, implementing the operation of of GRAY TO BINARY CONVERTER through digital logic gates which is simulated using PlatformIO IDEand thus displaying the outputs using LEDs. </p> 
+
+## Components Required to Build Binary to Gray Code converter
+VSDSquadron Mini
+LEDs (for output indication)
+Buttons (for binary input)
+Breadboard
+Jumper Wires
+PlatformIO
+VS Code for software development
+
+## Circuit Connection for GRAYto BINARY Code converter
+1. LED’s Connection
+LED1 (Gray Code Bit 2) connected to GPIO Pin_0
+LED2 (Gray Code Bit 1) connected to GPIO Pin_2
+LED3 (Gray Code Bit 0) connected to GPIO Pin_3
+2. Buttons Connection
+Button1 (Binary Input Bit 2) connected to GPIO Pin_4
+Button2 (Binary Input Bit 1) connected to GPIO Pin_5
+Button3 (Binary Input Bit 0) connected to GPIO Pin_6
+
+## PIN DESCRIPTION ACCORDING TO Header File ch32v00x.h
+PD0 => GPIO_Pin_0
+PD1 => GPIO_Pin_1
+PD2 => GPIO_Pin_2
+PD3 => GPIO_Pin_3
+PD4 => GPIO_Pin_4
+PD5 => GPIO_Pin_5
+PD6 => GPIO_Pin_6
+PD7 => GPIO_Pin_7
+
+<img src=https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%205/3%20bit%20gray_to_binary.png><br><br>
+
+
+## HARDWARE CONNECTIONS 
+
+
+
+ 
+
+A 3-bit Gray to Binary code converter follows a specific logic where each binary bit is derived from the corresponding Gray code bit. 
+
+### Truth Table for 3-bit Gray to Binary Conversion
+
+| Gray Code (G2 G1 G0) | Binary Code (B2 B1 B0) |
+|----------------------|----------------------|
+| 000  | 000  |
+| 001  | 001  |
+| 011  | 010  |
+| 010  | 011  |
+| 110  | 100  |
+| 111  | 101  |
+| 101  | 110  |
+| 100  | 111  |
+
+### **Conversion Formula:**
+- **B2** = **G2**
+- **B1** = **B2 ⊕ G1**
+- **B0** = **B1 ⊕ G0**
+
+
+
+## GRAY TO BINARY CODE CONVERTER 
+Include header files 
+```
+#include <ch32v00x.h>
+#include <debug.h>
+```
+
+define xor 
+```
+int xor(int bit1,int bit2)
+{ int xor= bit1^bit2;
+return xor
+  }
+  ```
+
+Pin configuration 
+```
+void GPIO_Config(void)
+{
+GPIO_InitTypeDef GPIO_InitStructure = {0}; //structure variable used for the GPIO configuration
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE); // to Enable the clock for Port D
+}
+```
+
+Input pin definition 
+```
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_4 | GPIO_Pin_6 ; // Defines which Pin to configure
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defines Output Type
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; // Defines speed
+GPIO_Init(GPIOD, &GPIO_InitStructure);
+```
+
+Main function
+
+```
+  int main(void)
+{
+uint8_t b0, b1, b2, g0 , g1, g2 = 0;
+NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+SystemCoreClockUpdate();
+Delay_Init();
+GPIO_Config();
+while(1)
+{
+  g0=GPIO_ReadInputDataBit(GPIOD,GIPO_Pin_4);
+  g1=GPIO_ReadInputDataBit(GPIOD,GIPO_Pin_5);
+  g2=GPIO_ReadInputDataBit(GPIOD,GIPO_Pin_6);
+
+  b2=xor(0,g2);
+  b1=xor(g1,b2);
+  b0=xor(g0,b1);
+  
+ if(b0==0)
+ {GPIO_WriteBit(GPIOD, GPIO_Pin_0, RESET);}
+ else
+ {{GPIO_WriteBit(GPIOD, GPIO_Pin_0, SET);}
+if(b1==0)
+  {GPIO_WriteBit(GPIOD, GPIO_Pin_2, RESET);}
+  else
+  {GPIO_WriteBit(GPIOD, GPIO_Pin_2, SET);}
+  if(b2==0)
+    {GPIO_WriteBit(GPIOD, GPIO_Pin_3, RESET);}
+  else
+    {GPIO_WriteBit(GPIOD, GPIO_Pin_0, SET);}
+}
+}
+```
+
+ <br><br>
+</details>
+</details>
+<hr>   
 </summary></p>
 
