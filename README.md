@@ -54,11 +54,11 @@ ls -ltr sum1ton.o
 <!-- End of Task 1-->
 <!-- Task 2 -->
 <!-- Spike for Sum1ton -->
+
 <details>
 <p><summary>
 <b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags
 </summary></p>
-
 
 			
  What is SPIKE in RISCV?
@@ -111,13 +111,14 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
 <!-- End of Task 2-->
+<!-- End of Task 2-->
 
 <!-- Task 3 -->
 <details>
 <p><summary>
 <b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
 </summary></p> 
-  ## Introduction Section:
+  ## Introduction:
 RISC-V (Reduced Instruction Set Computer - V) is an open standard instruction set architecture (ISA) based on established reduced instruction set computing principles. Unlike proprietary ISAs, RISC-V is free and open, enabling unrestricted academic and commercial use without licensing fees. This has made RISC-V an attractive option for research, education, and industry applications, fostering innovation and development across various domains.
 ### Importance of Understanding Instruction Formats
 Understanding instruction formats is crucial for several reasons:
@@ -665,8 +666,8 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 </details>
 <hr>
 <!-- end of Task 3 -->
-<!-- Task 4 -->
 
+<!-- Task 4 -->
 <details>
 <p><summary>
 <b>Task 4: </b>By using RISC-V Core: Verilog netlist and Testbench, perform an experiment of Functional Simulation using GTKWave and Observe the waveforms.
