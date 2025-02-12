@@ -8,10 +8,60 @@ EMAIL ID: [bhavramki@gmail.com](bhavramki@gmail.com)
 GITHUB USERNAME :[Bhavramsi](https://github.com/Bhavramsi)         
 LINKEDIN PROFILE :[Bhavana Ramakrishna](https://www.linkedin.com/in/bhavana-ramakrishna-1520922ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)        
 
- # Task 1 : This Task involves reviewing C-based and RISC-V-based lab videos and performing the compilation of C code using both GCC and the RISC-V compiler
- 
- # Task 2 : Performing SPIKE simulation and debugging the C code using Spike's interactive debugging mode.
+<!-- Task 1 -->
+<details>
+<p><summary>
+<b>Task 1:</b> Task is to install RISC-V toolchain using VDI link provided,Compiling the C code and Using RISV options O1 and Ofast
+</summary></p>
+<b>1. Install Ubuntu 18.04 LTS(beaver) on Oracle Virtual Machine Box and open VDI file provided</b>
+<br><br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/VM%20Box.png"  alt=Virtual Machine>
+<br><br>
+<b>2. Compiling C code </b>
+<br><br>
+<pre><code>cd
+gedit sum1ton.c
+gcc sum1ton.c
+./a.out</code></pre>
+<br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/C%20Code.png" alt=C code>
+<br><br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/C%20Code%20Output.png"       alt=commands for c compilation>
+<br><br>
+<b>3. Object Dump and O1 & Ofast Output</b>
+<br><br>
+<pre><code>cat sum1ton.c
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+ls -ltr sum1ton.o
+</code></pre>
+<br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Assembly%20Commands.png"    alt=Commands >
+<br><br>
+<pre><code>riscv64-unknown-elf-objdump -d sum1ton.o |less </code></pre>
+<br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Object%20Dump.png"  alt=Object dump>
+<br><br>
+<b>For O1: The number of instructions were 15.</b><br><br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/O1%20Output.png"  alt=O1 output>
+<br><br>
+<pre><code>riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c</code></pre>
+<br>
+<b>For Ofast: the number of instructions were 12.</b><br><br>
+<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Ofast%20Output.png"  alt=Ofast output>
+<br><br>
+</details>
+<hr>
+    
 
+<!-- End of Task 1-->
+<!-- Task 2 -->
+<!-- Spike for Sum1ton -->				
+<details>
+<p><summary>
+<b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags.
+</summary></p>
+<details>
+ 
  What is SPIKE in RISCV?
 A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.
 Spike is a free, open-source C++ simulator for the RISC-V ISA that models a RISC-V core and cache system. It can be used to run programs and a Linux kernel, and can be a starting point for running software on a RISC-V target.
@@ -61,9 +111,16 @@ Open the Objdump of code by using the following command
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
-
-# Task 3 :Decoding RISC-V Instructions: A Visual Guide
-
+<!-- End of Task 2-->
+<!-- Task 3 -->
+<!-- Objdump instructions-->
+<details>
+  <p><summary>
+    <b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
+  </summary></p>
+<!-- Task 3 -->   
+<details>
+	<p><summary>
 
   ## Introduction Section:
 RISC-V (Reduced Instruction Set Computer - V) is an open standard instruction set architecture (ISA) based on established reduced instruction set computing principles. Unlike proprietary ISAs, RISC-V is free and open, enabling unrestricted academic and commercial use without licensing fees. This has made RISC-V an attractive option for research, education, and industry applications, fostering innovation and development across various domains.
@@ -609,7 +666,10 @@ U-Type instructions are used for operations like loading upper immediate (LUI) a
 - **Binary:** `000000000000 00001 000 1100111`
 - **Hex:** `00008067`
 
-# Task 4 :Functional Simulation of RISC-V Core.
+  <!-- end of Task 3 -->
+<!-- Task 4 -->
+<details><summary><b>Task 4: </b>By using RISC-V Core: Verilog netlist and Testbench, perform an experiment of Functional Simulation using GTKWave and Observe the waveforms.</summary>
+<h3>Steps:</h3>
 
 ## OBJECTIVE :  Perform a functional simulation of the given RISC-V Core Verilog netlist and testbench.
 
@@ -729,3 +789,6 @@ sll r15,r1,r2(2
 
 ![sll r15,r1,r2(2)](https://github.com/user-attachments/assets/e2fd47ca-edf3-4f51-a854-23ee90dc97b4)
 
+<!-- end of Task 4 -->
+		<!-- Task 5 -->
+<details><summary><b>Task 5</b>:
