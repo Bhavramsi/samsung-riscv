@@ -53,8 +53,6 @@ ls -ltr sum1ton.o
 <hr>
 <!-- End of Task 1-->
 <!-- Task 2 -->
-<!-- Spike for Sum1ton -->
-
 <details>
 <p><summary>
 <b>Task 2:</b> Run and observe the performance of SPIKE Simulation and  under the -O1 and -Ofast Compiler optimization flags
@@ -110,8 +108,10 @@ Open the Objdump of code by using the following command
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 riscv64-unknown-elf-objdump -d sum1ton.o | less
 ```
+<br><br>
+</details>   
 <!-- End of Task 2-->
-<!-- End of Task 2-->
+
 
 <!-- Task 3 -->
 <details>
