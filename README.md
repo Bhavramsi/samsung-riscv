@@ -114,14 +114,10 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 <!-- End of Task 2-->
 <!-- Task 3 -->
 <!-- Objdump instructions-->
-
 <details>
 <p><summary>
-<b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
-</summary></p>
-  
-
-
+<b><b>Task 3:</b> 15 unique instructions are determined in the riscv-objdump of code,As it gives exact 32-bit instruction code in their respective instruction type formats.
+</summary></p> 
   ## Introduction Section:
 RISC-V (Reduced Instruction Set Computer - V) is an open standard instruction set architecture (ISA) based on established reduced instruction set computing principles. Unlike proprietary ISAs, RISC-V is free and open, enabling unrestricted academic and commercial use without licensing fees. This has made RISC-V an attractive option for research, education, and industry applications, fostering innovation and development across various domains.
 ### Importance of Understanding Instruction Formats
@@ -799,4 +795,8 @@ sll r15,r1,r2(2
 
 <!-- end of Task 4 -->
 		<!-- Task 5 -->
-<details><summary><b>Task 5</b>:
+<details>
+<p><summary>
+<b>Task 5: </b>
+</summary></p>
+
