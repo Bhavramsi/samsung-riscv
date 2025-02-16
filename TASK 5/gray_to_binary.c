@@ -11,15 +11,17 @@ return xor
 //pin configuration 
 void GPIO_Config(void)
 {
-GPIO_InitTypeDef GPIO_InitStructure = {0}; //structure variable used for the GPIO configuration
+void GPIO_Config(void)
+{ GPIO_InitTypeDef GPIO_InitStructure = {0}; //structure variable used for the GPIO configuration
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE); // to Enable the clock for Port D
-}
-
-// input pin definition 
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_4 | GPIO_Pin_6 ; // Defines which Pin to configure
-GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defines Output Type
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 ; // Defines which Pin to configure
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defines Input Type
+GPIO_Init(GPIOD, &GPIO_InitStructure);
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_2 | GPIO_Pin_3 ; // Defines which Pin to configure
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; // Defines Output Type
 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; // Defines speed
 GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
 
 // main function 
   int main(void)
@@ -50,7 +52,7 @@ if(b1==0)
   if(b2==0)
     {GPIO_WriteBit(GPIOD, GPIO_Pin_3, RESET);}
   else
-    {GPIO_WriteBit(GPIOD, GPIO_Pin_0, SET);}
+    {GPIO_WriteBit(GPIOD, GPIO_Pin_3, SET);}
 }
 }
 
