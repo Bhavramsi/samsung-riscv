@@ -31,8 +31,11 @@ gcc sum1ton.c
 
 <br><br>
 <b>3. Object Dump and O1 & Ofast Output</b>
-img=<"https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-Ofast.png">
-img=<"https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-O1.png">
+<img src="https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/c%20code%20complied%20using%20gcc%20complier.png">
+
+<img src="https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-O1.png">
+
+
 <br><br>
 <pre><code>cat sum1ton.c
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
@@ -43,16 +46,15 @@ ls -ltr sum1ton.o
 <br><br>
 <pre><code>riscv64-unknown-elf-objdump -d sum1ton.o |less </code></pre>
 
-<br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Object%20Dump.png"  alt=Object dump>
+
 <br><br>
 <b>For O1: The number of instructions were 15.</b><br><br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/O1%20Output.png"  alt=O1 output>
+<img src="https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-O1.png"   alt=-O1 output>
 <br><br>
 <pre><code>riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c</code></pre>
 <br>
 <b>For Ofast: the number of instructions were 12.</b><br><br>
-<img src="https://github.com/BHAVYA9-Y/samsung-riscv/blob/main/Task%201/Ofast%20Output.png"  alt=Ofast output>
+<img src= "https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%201/obj%20dump%20using%20-Ofast.png" alt=-Ofast output>
 <br><br>
 </details>
 <hr>
@@ -848,9 +850,9 @@ PD7 => GPIO_Pin_7
 
 ## HARDWARE CONNECTIONS 
 
+<img src="https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%205/3%20bit%20gray%20to%20binary%20pin%20diagram.png">
 
 
- 
 
 A 3-bit Gray to Binary code converter follows a specific logic where each binary bit is derived from the corresponding Gray code bit. 
 
@@ -888,22 +890,19 @@ int xor(int bit1,int bit2)
 return xor
   }
   ```
-
 Pin configuration 
 ```
 void GPIO_Config(void)
-{
-GPIO_InitTypeDef GPIO_InitStructure = {0}; //structure variable used for the GPIO configuration
+{ GPIO_InitTypeDef GPIO_InitStructure = {0}; //structure variable used for the GPIO configuration
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE); // to Enable the clock for Port D
-}
-```
-
-Input pin definition 
-```
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_4 | GPIO_Pin_6 ; // Defines which Pin to configure
-GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defines Output Type
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 ; // Defines which Pin to configure
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defines Input Type
+GPIO_Init(GPIOD, &GPIO_InitStructure);
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_2 | GPIO_Pin_3 ; // Defines which Pin to configure
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; // Defines Output Type
 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; // Defines speed
 GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
 ```
 
 Main function
@@ -947,4 +946,18 @@ if(b1==0)
 </details>
 <hr>   
 </summary></p>
+<!-- end of Task 5 -->
+
+<!-- Task 6 -->
+<details>
+<p><summary>
+<b>Task 6: </b>  Application Demo
+	
+https://github.com/Bhavramsi/samsung-riscv/blob/main/TASK%206/3%20bit%20gray%20to%20binary.mp4
+
+
+
+
+
+
 
